@@ -1,3 +1,27 @@
+--[[Credits/Features:
+    Made By: LotusKeeper#6937
+
+    Currently Includes
+    Mod Suite:
+        - Per character mod activation. [Automatic]
+        - UI Lib V1 [Automatic]
+        - Demo Mode [Hides Account Details for Recording] (Set local demoMode = true)
+    Darkseid Mod:
+        - Per player boom tubing. [In Playerlist]
+        - To mouse boom tubing. [G+Click]
+        - Per player "homing" omega beams. [In Playerlist]
+        - Rapid fire "homing" omega beams. [Cheat Mode | Right click homing button]
+    Cicada Mod:
+        - Sentient Knife [Creates a singular homing knife] (Render Based Cooldown | Press 5)
+        - Knife Swarm [Creates a swarm of homing knives] (10 Second Cooldown | Press 6)
+        - Cheat Mode [Disable Cooldowns] (Hold 5)
+]]
+
+-- Change these as you like.
+local demoMode = false
+
+
+-- No touchy this, you might break it.
 local RS = game:GetService("ReplicatedStorage")
 local UIS = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
@@ -455,7 +479,6 @@ old = hookmetamethod(game, "__namecall", function(self, ...)
   return old(self, ...)
 end)
 
-local demoMode = true
 player.CharacterAdded:Connect(function(character)
     chr = character
     if cName then
